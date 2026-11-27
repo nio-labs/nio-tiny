@@ -1,4 +1,4 @@
-# 🐾 Nio Tiny — Ultra-Light `135M` AI Coding Agent & Edge Models (`~250 MB` RAM)
+# 🐾 Nio Tiny — Experimental `135M` Edge Coding Assistants & Micro-Models (`~250 MB` RAM)
 
 [![License: BSL 1.1](https://img.shields.io/badge/License-BSL%201.1-blue.svg)](LICENSE)
 [![Engine: nio-xs](https://img.shields.io/badge/Engine-nio--xs-orange.svg)](https://github.com/nio-labs/nio-xs)
@@ -7,9 +7,11 @@
 
 ## 💡 Why Nio Tiny?
 
-> **Why should a Raspberry Pi Zero, a `512 MB` IoT board, or an old laptop be locked out of local AI coding agents?**
+> **How small can a self-verifying coding assistant get before it stops fitting in `250 MB` of RAM?**
 
-Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM. **Nio Tiny** brings a full **offline AI coding agent & specialist model architecture** — **specialist routing, web grounding, anti-hallucination guard, `/teach` memory, and `--verify` code self-repair** — down to **`135M`-parameter AI models (`101 MB` per pod, `~200–300 MB` active RAM)**:
+Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM, which leaves out Raspberry Pi Zeros, `512 MB` IoT boards, and legacy hardware. **Nio Tiny** is our **experimental `135M` edge line** (`Tiny Orca` & `Tiny Meerkat`) testing how far **specialist routing, web grounding, `/teach` memory, and `--verify` self-repair** can stretch at `101 MB` per pod and `~250 MB` active RAM.
+
+> **Honest expectations:** At `135M` parameters, Nio Tiny is best suited for **short scripts, simple helper functions, quick offline Q&A, and edge AI experiments** — not complex multi-file software engineering. For heavy daily coding, use [**Nio Orca**](https://github.com/nio-labs/nio-orca) (`85–92%` HumanEval) or [**Nio Meerkat**](https://github.com/nio-labs/nio-meerkat).
 - **`Tiny Orca` (`23 × 135M`):** `23` specialist micro-pods loaded **1 at a time** so active RAM stays `~250 MB`, with `3.4×` HumanEval recovery under 16-round `--verify`.
 - **`Tiny Meerkat` (`2 × 135M`):** Just **`202 MB` total disk** (`Tiny Scout + Tiny Builder`), running in `~2.7s` on CPU with `/teach` memory and `--verify`.
 
