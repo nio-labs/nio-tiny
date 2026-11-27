@@ -1,4 +1,4 @@
-# 🐾 Nio Tiny — Sub-300MB RAM `135M` Sovereign Edge Fleets
+# 🐾 Nio Tiny — Ultra-Light `135M` AI Coding Agent & Edge Models (`~250 MB` RAM)
 
 [![License: BSL 1.1](https://img.shields.io/badge/License-BSL%201.1-blue.svg)](LICENSE)
 [![Engine: nio-xs](https://img.shields.io/badge/Engine-nio--xs-orange.svg)](https://github.com/nio-labs/nio-xs)
@@ -7,9 +7,9 @@
 
 ## 💡 Why Nio Tiny?
 
-> **Why should a Raspberry Pi Zero, a `512 MB` IoT board, or an old netbook be locked out of agentic AI?**
+> **Why should a Raspberry Pi Zero, a `512 MB` IoT board, or an old laptop be locked out of local AI coding agents?**
 
-Even `0.5B`–`1.5B` models need `~600 MB–1.8 GB` of RAM. **Nio Tiny** shrinks Nio Labs' full specialist architecture — **Lead routing, Web Scout grounding, Anti-Hallucination Guard, `/teach` memory, and `--verify` self-repair** — down to **`135M` parameters (`101 MB` per pod, `~200–300 MB` active RAM)**:
+Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM. **Nio Tiny** brings a full **offline AI coding agent & specialist model architecture** — **specialist routing, web grounding, anti-hallucination guard, `/teach` memory, and `--verify` code self-repair** — down to **`135M`-parameter AI models (`101 MB` per pod, `~200–300 MB` active RAM)**:
 - **`Tiny Orca` (`23 × 135M`):** `23` specialist micro-pods loaded **1 at a time** so active RAM stays `~250 MB`, with `3.4×` HumanEval recovery under 16-round `--verify`.
 - **`Tiny Meerkat` (`2 × 135M`):** Just **`202 MB` total disk** (`Tiny Scout + Tiny Builder`), running in `~2.7s` on CPU with `/teach` memory and `--verify`.
 
