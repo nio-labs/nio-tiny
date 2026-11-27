@@ -1,0 +1,31 @@
+License text copyright (c) 2020 MariaDB Corporation Ab, All Rights Reserved.
+"Business Source License" is a trademark of MariaDB Corporation Ab.
+
+Parameters
+
+Licensor:             Nio Labs
+Licensed Work:        Nio Orca Sovereign vMicroLM Pod Fleets (including Orca Nano, Orca Mini, Orca Omni, Orca Max, Orca Ultra, and Orca Pods) and associated runtimes, weights, configurations, and architectures. The Licensed Work is (c) 2026 Nio Labs.
+Additional Use Grant: You may make production use of the Licensed Work, provided
+                      Your use does not include offering the Licensed Work to third
+                      parties on a hosted or managed service basis in order to compete
+                      with Nio Labs' commercial product(s) or service(s) of the Licensed Work.
+
+                      Using the Licensed Work for internal purposes, evaluation, testing,
+                      personal local development, or embedded within internal tools within an
+                      organization is not considered a competitive offering.
+Change Date:          2030-01-01
+Change License:       Apache License, Version 2.0
+
+Notice: The Business Source License (this License) does not grant You rights under
+patent law.
+
+1. Grant of License.
+
+Subject to the terms and conditions of this License, Licensor hereby grants You a
+worldwide, non-exclusive, non-transferable, non-sublicensable license to use,
+reproduce, prepare derivative works of, and publicly display the Licensed Work.
+
+2. Change License.
+
+Licensor agrees that effective on the Change Date, this License shall be converted
+to the Change License.
