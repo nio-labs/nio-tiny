@@ -26,12 +26,18 @@ Even `0.5B`–`1.5B` models need `~600 MB–1.8 GB` of RAM. **Nio Tiny** shrinks
 
 ## 📊 Verified Benchmarks (Modal L4, `Q4_K_M`)
 
-Evaluated on full `openai/openai_humaneval` (`164` tasks) and `google-research-datasets/mbpp` (`sanitized`, `100` tasks):
+Evaluated on full `openai/openai_humaneval` (`164` tasks) and `google-research-datasets/mbpp` (`sanitized`, `100` tasks) alongside published sub-2B baselines:
 
-| System | Active Params | HumanEval `pass@1` | HumanEval `16-Round` | MBPP `pass@1` | MBPP `16-Round` | Published `SmolLM2-135M-Instruct` (`FP16`) |
+| System | Active Params | HumanEval `pass@1` | HumanEval `16-Round` | MBPP `pass@1` | MBPP `16-Round` | Active RAM |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Tiny Orca (`23× 135M`)** | `135M` | `4.27%` (`7/164`) | **`14.63%` (`24/164`)** | `16.0%` (`16/100`) | **`26.0%` (`26/100`)** | `~7.9%` HE |
-| **Tiny Meerkat (`2× 135M`)** | `135M` | `6.10%` (`10/164`) | **`10.37%` (`17/164`)** | `11.0%` (`11/100`) | **`26.0%` (`26/100`)** | `~7.9%` HE |
+| `SmolLM2-1.7B-Instruct` (`FP16`)* | `1.7B` | `~37.2%` | — | — | — | `~3.4 GB` |
+| `SmolLM2-360M-Instruct` (`FP16`)* | `360M` | `~16.5%` | — | — | — | `~750 MB` |
+| **Tiny Orca (`23× 135M`)** | `135M` | `4.27%` (`7/164`) | **`14.63%` (`24/164`)** | `16.0%` (`16/100`) | **`26.0%` (`26/100`)** | **`~200–300 MB`** |
+| **Tiny Meerkat (`2× 135M`)** | `135M` | `6.10%` (`10/164`) | **`10.37%` (`17/164`)** | `11.0%` (`11/100`) | **`26.0%` (`26/100`)** | **`~250 MB`** |
+| `SmolLM2-135M-Instruct` (`FP16`)* | `135M` | `~7.9%` | — | — | — | `~300 MB` |
+| `SmolLM2-135M` (`Base`, `FP16`)* | `135M` | `0.0% – 2.2%` | — | — | — | `~300 MB` |
+
+*\*Published single-shot `pass@1` baselines from HuggingFaceTB (`SmolLM2`).*
 
 ---
 
