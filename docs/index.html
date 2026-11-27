@@ -21,7 +21,7 @@
     <a href="#overview" class="brand-title">
       <img class="brand-logo" src="logo.svg" alt="Nio Tiny logo">
       <span class="brand-name">Nio Tiny</span>
-      <span class="badge">v0.6.4</span>
+      <span class="badge">v0.6.6</span>
     </a>
     <button class="theme-toggle-btn" type="button" aria-label="Toggle theme">
       <span class="theme-icon"></span>
@@ -67,7 +67,7 @@
       <div class="content-container">
         <section id="overview" class="doc-section">
           <div class="hero">
-            <span class="badge badge-accent">v0.6.4 Live on GitHub Releases</span>
+            <span class="badge badge-accent">v0.6.6 Live on GitHub Releases</span>
             <h1>Nio Tiny — Experimental <code>135M</code> Edge Coding Assistants &amp; Micro-Models</h1>
             <p class="lead">How small can a self-verifying coding assistant get in <code>~250 MB</code> of RAM? <strong>Nio Tiny</strong> tests specialist routing, web grounding, <code>/teach</code> memory, and <code>--verify</code> repair at <code>135M</code> parameters — great for short scripts, IoT boards, and edge experiments (for heavy coding, see <a href="https://github.com/nio-labs/nio-orca">Nio Orca</a> &amp; <a href="https://github.com/nio-labs/nio-meerkat">Nio Meerkat</a>).</p>
           </div>
@@ -90,10 +90,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td><strong>1</strong></td><td><code>SmolLM2-1.7B-Instruct</code> (<code>FP16</code>, Pass@1)*</td><td><code>1.7B</code></td><td><code>1</code> pod</td><td><code>~37.2%</code></td><td>—</td><td><code>~3.4 GB</code></td><td>—</td></tr>
-                <tr><td><strong>2</strong></td><td><code>SmolLM2-360M-Instruct</code> (<code>FP16</code>, Pass@1)*</td><td><code>360M</code></td><td><code>1</code> pod</td><td><code>~16.5%</code></td><td>—</td><td><code>~750 MB</code></td><td>—</td></tr>
-                <tr class="highlight-row"><td><strong>3</strong></td><td><strong><code>Tiny Orca</code></strong> (<code>23× 135M</code>, 16-round)</td><td><strong><code>135M</code></strong></td><td><strong><code>23 pods / 3.11B</code></strong> (<code>~2.3 GB</code>, <code>101 MB/pod</code>)</td><td><strong><code>14.63%</code></strong> (<code>24/164</code>)</td><td><strong><code>26.0%</code></strong> (<code>26/100</code>)</td><td><strong><code>~333 MB</code></strong></td><td><strong><code>~40+ w/s</code></strong></td></tr>
-                <tr class="highlight-row"><td><strong>4</strong></td><td><strong><code>Tiny Meerkat</code></strong> (<code>2× 135M</code>, 16-round)</td><td><strong><code>135M</code></strong></td><td><strong><code>2 pods / 270M</code></strong> (<code>202 MB</code> total)</td><td><strong><code>10.37%</code></strong> (<code>17/164</code>)</td><td><strong><code>26.0%</code></strong> (<code>26/100</code>)</td><td><strong><code>~334 MB</code></strong></td><td><strong><code>~40+ w/s</code></strong></td></tr>
+                <tr class="highlight-row"><td><strong>1</strong></td><td><strong><code>Tiny Meerkat</code></strong> (<code>0.5B IQ3_XXS</code>, 16-round)</td><td><strong><code>0.5B</code></strong></td><td><strong><code>1 pod</code></strong> (<code>319 MB</code>)</td><td><strong><code>67.68%</code></strong> (<code>111/164</code>)</td><td><strong><code>70.0%</code></strong> (<code>70/100</code>)</td><td><strong><code>624.1 MB</code></strong></td><td><strong><code>~15–25 w/s</code></strong></td></tr>
+                <tr><td><strong>2</strong></td><td><code>SmolLM2-1.7B-Instruct</code> (<code>FP16</code>, Pass@1)*</td><td><code>1.7B</code></td><td><code>1</code> pod</td><td><code>~37.2%</code></td><td>—</td><td><code>~3.4 GB</code></td><td>—</td></tr>
+                <tr><td><strong>3</strong></td><td><code>SmolLM2-360M-Instruct</code> (<code>FP16</code>, Pass@1)*</td><td><code>360M</code></td><td><code>1</code> pod</td><td><code>~16.5%</code></td><td>—</td><td><code>~750 MB</code></td><td>—</td></tr>
+                <tr class="highlight-row"><td><strong>4</strong></td><td><strong><code>Tiny Orca</code></strong> (<code>23× 135M</code>, 16-round)</td><td><strong><code>135M</code></strong></td><td><strong><code>23 pods / 3.11B</code></strong> (<code>~2.3 GB</code>, <code>101 MB/pod</code>)</td><td><strong><code>14.63%</code></strong> (<code>24/164</code>)</td><td><strong><code>26.0%</code></strong> (<code>26/100</code>)</td><td><strong><code>~333 MB</code></strong></td><td><strong><code>~40+ w/s</code></strong></td></tr>
+                <tr><td><strong>5</strong></td><td><code>Tiny Meerkat</code> (<code>2× 135M</code> legacy, 16-round)</td><td><code>135M</code></td><td><code>2 pods</code> (<code>202 MB</code>)</td><td><code>10.37%</code> (<code>17/164</code>)</td><td><code>26.0%</code> (<code>26/100</code>)</td><td><code>~334 MB</code></td><td><code>~40+ w/s</code></td></tr>
                 <tr><td><strong>5</strong></td><td><code>SmolLM2-135M-Instruct</code> (<code>FP16</code>, Pass@1)*</td><td><code>135M</code></td><td><code>1</code> pod</td><td><code>~7.9%</code></td><td>—</td><td><code>~300 MB</code></td><td>—</td></tr>
                 <tr><td><strong>6</strong></td><td><code>SmolLM2-135M</code> (<code>Base</code>, <code>FP16</code>, Pass@1)*</td><td><code>135M</code></td><td><code>1</code> pod</td><td><code>0.0% – 2.2%</code></td><td>—</td><td><code>~300 MB</code></td><td>—</td></tr>
               </tbody>
@@ -128,7 +129,7 @@ nioxs tiny-orca --retries 16 "write a python function to add two numbers"</code>
               </thead>
               <tbody>
                 <tr><td><strong>Tiny Orca</strong></td><td><code>nioxs tiny-orca</code></td><td><code>23 × 135M</code> (<code>Lead</code>, <code>Web Scout</code>, <code>Guard</code>, <code>Reasoning-Think</code>, + <code>19</code> specialists; 1 active)</td><td><code>~2.3 GB</code></td><td><code>~200–300 MB</code></td></tr>
-                <tr><td><strong>Tiny Meerkat</strong></td><td><code>nioxs tiny-meerkat</code></td><td><code>2 × 135M</code> (<code>Tiny Scout</code> + <code>Tiny Builder</code> + <code>/teach</code> memory + <code>--verify</code>)</td><td><code>202 MB</code></td><td><code>~250 MB</code></td></tr>
+                <tr><td><strong>Tiny Meerkat</strong></td><td><code>nioxs tiny-meerkat</code></td><td><code>0.5B IQ3_XXS</code> (<code>Tiny Reflex</code> + <code>0.5B</code> Wave 1 LoRAs + <code>/teach</code> memory + <code>--verify</code>)</td><td><code>319 MB</code></td><td><code>~624 MB</code></td></tr>
               </tbody>
             </table>
           </div>
