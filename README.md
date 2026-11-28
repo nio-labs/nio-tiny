@@ -13,7 +13,8 @@ Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM, which leaves out 
 
 > **Honest expectations:** At `135M` parameters, Nio Tiny is best suited for **short scripts, simple helper functions, quick offline Q&A, and edge AI experiments** — not complex multi-file software engineering. For heavy daily coding, use [**Nio Orca**](https://github.com/nio-labs/nio-orca) (`85–92%` HumanEval) or [**Nio Meerkat**](https://github.com/nio-labs/nio-meerkat).
 - **`Tiny Orca` (`23 × 135M`):** `23` specialist micro-pods loaded **1 at a time** so active RAM stays `~250 MB`, with `3.4×` HumanEval recovery under 16-round `--verify`.
-- **`Tiny Meerkat` (`0.5B IQ3_XXS`):** Upgraded from `2×135M` (`10.37%` HE) to a **`319 MB`** `IQ3_XXS` `0.5B` Reflex model (`67.68%` HumanEval, `70.0%` MBPP, `624 MB` RSS) with `/teach` memory and `--verify`.
+- **`Meerkat-S` (`0.5B IQ3_XXS`, formerly `Tiny Meerkat`):** **`319 MB`** `IQ3_XXS` `0.5B` Reflex model (`67.68%` HumanEval, `70.0%` MBPP, `624.1 MB` RSS) with `0.5B` Wave 1 LoRAs, `/teach` memory, and `--verify`.
+- **`Meerkat-XS` (`2 × 135M`):** **`202 MB`** edge companion (`~334 MB` RSS) tuned for fast chat, Q&A, and lightweight scripts.
 
 ---
 
@@ -22,7 +23,8 @@ Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM, which leaves out 
 | Model | Command | Topology | Disk Size | Active RAM |
 | :--- | :--- | :--- | :---: | :---: |
 | **Tiny Orca** | `nioxs tiny-orca` | **`23 × 135M`** (`Lead`, `Web Scout`, `Guard`, `Reasoning-Think`, + `19` specialist pods; 1 active at a time) | `~2.3 GB` | **`~200–300 MB`** |
-| **Tiny Meerkat** | `nioxs tiny-meerkat` | **`0.5B IQ3_XXS`** (`Tiny Reflex` + `0.5B` Wave 1 LoRAs + `/teach` memory + `--verify`) | **`319 MB`** | **`~624 MB`** |
+| **Meerkat-S** *(alias `tiny-meerkat`)* | `nioxs meerkat-s` | **`0.5B IQ3_XXS`** (`Reflex` + `0.5B` Wave 1 LoRAs + `/teach` memory + `--verify`) | **`319 MB`** | **`624.1 MB`** |
+| **Meerkat-XS** | `nioxs meerkat-xs` | **`2 × 135M`** (edge chat, Q&A, `/teach` memory, light scripts) | **`202 MB`** | **`~334 MB`** |
 
 ---
 
@@ -30,11 +32,11 @@ Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM, which leaves out 
 
 | Rank | Model / Fleet | Active Params | Pods & Total Size | HumanEval (`164`) | MBPP (`100`) | Host RAM (`VmHWM`) | CPU Speed |
 | :---: | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| **1** | **`Tiny Meerkat`** (`0.5B IQ3_XXS`, 16-round) | **`0.5B`** | **`1` pod (`319 MB`)** | **`67.68%`** (`111/164`) | **`70.0%`** (`70/100`) | **`624.1 MB`** | **`~15–25 w/s`** |
+| **1** | **`Meerkat-S`** (`0.5B IQ3_XXS`, 16-round) | **`0.5B`** | **`1` pod (`319 MB`)** | **`67.68%`** (`111/164`) | **`70.0%`** (`70/100`) | **`624.1 MB`** | **`~15–25 w/s`** |
 | **2** | `SmolLM2-1.7B-Instruct` (`FP16`, Pass@1)* | `1.7B` | `1` pod | `~37.2%` | — | `~3.4 GB` | — |
 | **3** | `SmolLM2-360M-Instruct` (`FP16`, Pass@1)* | `360M` | `1` pod | `~16.5%` | — | `~750 MB` | — |
 | **4** | **`Tiny Orca`** (`23× 135M`, 16-round) | **`135M`** | **`23 pods / 3.11B`** (`~2.3 GB`, `101 MB/pod`) | **`14.63%`** (`24/164`) | **`26.0%`** (`26/100`) | **`~333 MB`** | **`~40+ w/s`** |
-| **5** | `Tiny Meerkat` (`2× 135M` legacy, 16-round) | `135M` | `2 pods` (`202 MB`) | `10.37%` (`17/164`) | `26.0%` (`26/100`) | `~334 MB` | `~40+ w/s` |
+| **5** | **`Meerkat-XS`** (`2× 135M`, 16-round) | **`135M`** | **`2 pods`** (`202 MB`) | **`10.37%`** (`17/164`) | **`26.0%`** (`26/100`) | **`~334 MB`** | **`~40+ w/s`** |
 | **6** | `SmolLM2-135M-Instruct` (`FP16`, Pass@1)* | `135M` | `1` pod | `~7.9%` | — | `~300 MB` | — |
 
 *\*Tiny Orca & Tiny Meerkat evaluated on Modal L4 (`Q4_K_M`, 16-round `--verify`). Published single-shot Pass@1 baselines are from HuggingFaceTB (`SmolLM2`).*
