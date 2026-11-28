@@ -2,7 +2,7 @@
 
 [![License: BSL 1.1](https://img.shields.io/badge/License-BSL%201.1-blue.svg)](LICENSE)
 [![Engine: nio-xs](https://img.shields.io/badge/Engine-nio--xs-orange.svg)](https://github.com/nio-labs/nio-xs)
-[![Models: v0.6.6](https://img.shields.io/badge/Models-v0.6.6-emerald.svg)](https://github.com/nio-labs/nio-xs-models/releases/tag/v0.6.6)
+[![Models: v0.7.0](https://img.shields.io/badge/Models-v0.7.0-emerald.svg)](https://github.com/nio-labs/nio-xs-models/releases/tag/v0.7.0)
 [![RAM: ~250 MB](https://img.shields.io/badge/Active%20RAM-~250%20MB-purple.svg)](#quick-start)
 
 ## 💡 Why Nio Tiny?
@@ -23,7 +23,7 @@ Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM, which leaves out 
 | Model | Command | Topology | Disk Size | Active RAM |
 | :--- | :--- | :--- | :---: | :---: |
 | **Orca XS** | `nioxs orca-xs` | **`23 × 135M`** (`Lead`, `Web Scout`, `Guard`, `Reasoning-Think`, + `19` specialist pods; 1 active at a time) | `~2.3 GB` | **`~200–300 MB`** |
-| **Mink S** *(alias `tiny-meerkat`)* | `nioxs mink-s` | **`0.5B IQ3_XXS`** (`Reflex` + `0.5B` Wave 1 LoRAs + `/teach` memory + `--verify`) | **`319 MB`** | **`624.1 MB`** |
+| **Mink S** | `nioxs mink-s` | **`0.5B IQ3_XXS`** (`Reflex` + `0.5B` Wave 1 LoRAs + `/teach` memory + `--verify`) | **`319 MB`** | **`624.1 MB`** |
 | **Mink XS** | `nioxs mink-xs` | **`2 × 135M`** (edge chat, Q&A, `/teach` memory, light scripts) | **`202 MB`** | **`~334 MB`** |
 
 ---
@@ -32,14 +32,16 @@ Even `0.5B`–`1.5B` AI models need `~600 MB–1.8 GB` of RAM, which leaves out 
 
 | Rank | Model / Fleet | Active Params | Pods & Total Size | HumanEval (`164`) | MBPP (`100`) | Host RAM (`VmHWM`) | CPU Speed |
 | :---: | :--- | :---: | :--- | :--- | :--- | :--- | :--- |
-| **1** | **`Mink S`** (`0.5B IQ3_XXS`, 16-round) | **`0.5B`** | **`1` pod (`319 MB`)** | **`67.68%`** (`111/164`) | **`70.0%`** (`70/100`) | **`624.1 MB`** | **`~15–25 w/s`** |
-| **2** | `SmolLM2-1.7B-Instruct` (`FP16`, Pass@1)* | `1.7B` | `1` pod | `~37.2%` | — | `~3.4 GB` | — |
-| **3** | `SmolLM2-360M-Instruct` (`FP16`, Pass@1)* | `360M` | `1` pod | `~16.5%` | — | `~750 MB` | — |
-| **4** | **`Orca XS`** (`23× 135M`, 16-round) | **`135M`** | **`23 pods / 3.11B`** (`~2.3 GB`, `101 MB/pod`) | **`14.63%`** (`24/164`) | **`26.0%`** (`26/100`) | **`~333 MB`** | **`~40+ w/s`** |
-| **5** | **`Mink XS`** (`2× 135M`, 16-round) | **`135M`** | **`2 pods`** (`202 MB`) | **`10.37%`** (`17/164`) | **`26.0%`** (`26/100`) | **`~334 MB`** | **`~40+ w/s`** |
-| **6** | `SmolLM2-135M-Instruct` (`FP16`, Pass@1)* | `135M` | `1` pod | `~7.9%` | — | `~300 MB` | — |
+| **1** | Stock `Qwen2.5-Coder-3B` (`FP16`) | `3.0B` | `1` pod | `81.10%` (`133/164`) | `74.0%` (`74/100`) | — | — |
+| **2** | Stock `Qwen2.5-Coder-3B` (`INT4`) | `3.0B` | `1` pod | `79.27%` (`130/164`) | `73.0%` (`73/100`) | — | — |
+| **3** | **`Mink S`** (`0.5B IQ3_XXS`, 16-round) | **`0.5B`** | **`1` pod (`319 MB`)** | **`67.68%`** (`111/164`) | **`70.0%`** (`70/100`) | **`624.1 MB`** | **`~15–25 w/s`** |
+| **4** | `SmolLM2-1.7B-Instruct` (`FP16`, Pass@1)* | `1.7B` | `1` pod | `~37.2%` | — | `~3.4 GB` | — |
+| **5** | `SmolLM2-360M-Instruct` (`FP16`, Pass@1)* | `360M` | `1` pod | `~16.5%` | — | `~750 MB` | — |
+| **6** | **`Orca XS`** (`23× 135M`, 16-round) | **`135M`** | **`23 pods / 3.11B`** (`~2.3 GB`, `101 MB/pod`) | **`14.63%`** (`24/164`) | **`26.0%`** (`26/100`) | **`~333 MB`** | **`~40+ w/s`** |
+| **7** | **`Mink XS`** (`2× 135M`, 16-round) | **`135M`** | **`2 pods`** (`202 MB`) | **`10.37%`** (`17/164`) | **`26.0%`** (`26/100`) | **`~334 MB`** | **`~40+ w/s`** |
+| **8** | `SmolLM2-135M-Instruct` (`FP16`, Pass@1)* | `135M` | `1` pod | `~7.9%` | — | `~300 MB` | — |
 
-*\*Orca XS & Tiny Meerkat evaluated on Modal L4 (`Q4_K_M`, 16-round `--verify`). Published single-shot Pass@1 baselines are from HuggingFaceTB (`SmolLM2`).*
+*\*Orca XS, Mink XS & Mink S evaluated on Modal L4 (16-round `--verify`). `Qwen2.5-Coder-3B` (`FP16`/`INT4`) ran in the same multi-round harness; `SmolLM2` single-shot Pass@1 baselines are from HuggingFaceTB.*
 
 ---
 
